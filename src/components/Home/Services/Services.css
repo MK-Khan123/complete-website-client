@@ -1,0 +1,35 @@
+.photo-frame:hover img {
+    transform: scale(1.2);
+    transition: transform 1s;
+}
+
+.cardImg {
+    overflow: hidden;
+}
+
+.cardImg img {
+    width: 100%;
+}
+
+.photo-details {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    display: none;
+}
+
+.photo-frame:hover .photo-details {
+    display: block;
+    background-color: rgba(218, 165, 32, 0.384);
+}
+
+.photo-frame:hover .photo-details h4{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.404);
+    text-align: center;
+}
+
+.photo-frame:hover .photo-details p{
+    color: white;
+    text-align: center;
+}

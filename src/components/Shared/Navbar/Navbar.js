@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../images/auto-shop.jpg';
+import { UserContext } from '../../../App';
+import logo from '../../../images/logo.png';
 
 const Navbar = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
     return (
         <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light">
@@ -13,11 +16,12 @@ const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div className="navbar-nav ms-auto">
+                        <div className="navbar-nav ms-auto align-items-center">
                             <Link className="nav-link ms-5" aria-current="page" to="/home">Home</Link>
                             <Link className="nav-link ms-5" to="/orders">Orders</Link>
                             <Link className="nav-link ms-5" to="/admin">Admin</Link>
-                            <Link className="nav-link ms-5" to="/login">Login</Link>
+                            {loggedInUser.signedInUser ? <Link className="nav-link ms-5" to='/'>{loggedInUser.displayName}</Link>
+                                : <Link className="nav-link ms-5" to="/login"><button className="btn btn-outline-danger">Login</button></Link>}
                         </div>
                     </div>
                 </div>
