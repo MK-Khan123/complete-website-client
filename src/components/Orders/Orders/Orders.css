@@ -1,0 +1,4 @@
+.sidebar {
+    background-image: linear-gradient(40deg, #1a2220,#25464b);
+    position: fixed;
+}

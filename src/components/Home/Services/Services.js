@@ -38,7 +38,6 @@ const Services = () => {
                             const { name, price, details, img } = service;
                             return (
                                 <div className='col-md-4 mb-2'>
-
                                     <div className="card shadow photo-frame" style={{ width: "18rem" }}>
                                         <div className='cardImg'>
                                             <img src={img} style={{ height: "250px" }} className="card-img-top" alt="..." />
@@ -55,7 +54,6 @@ const Services = () => {
                                             <Link to="#" className="btn btn-primary">Get service</Link>
                                         </div>
                                     </div>
-
                                 </div>
                             );
                         })
