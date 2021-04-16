@@ -6,9 +6,14 @@ import {
 } from "react-router-dom";
 import { createContext, useState } from 'react';
 import Home from './components/Home/Home/Home';
-import Admin from './components/Admin/Admin/Admin';
-import Orders from './components/Orders/Orders/Orders';
 import Login from './components/Login/Login/Login';
+import OrderCheckout from './components/Dashboard/OrderCheckout/OrderCheckout';
+import OrderList from './components/Dashboard/OrderList/OrderList';
+import AddReview from './components/Dashboard/AddReview/AddReview';
+import AllOrderList from './components/Dashboard/AllOrderList/AllOrderList';
+import AddService from './components/Dashboard/AddService/AddService';
+import MakeAdmin from './components/Dashboard/MakeAdmin/MakeAdmin';
+import ManageServices from './components/Dashboard/ManageServices/ManageServices';
 
 export const UserContext = createContext();
 
@@ -22,12 +27,33 @@ function App() {
           <Route path='/home'>
             <Home />
           </Route>
-          <Route path='/admin'>
-            <Admin />
+          <Route path='/orderCheckout'>
+            <OrderCheckout />
           </Route>
-          <Route path='/orders'>
-            <Orders />
+          <Route path='/myOrderList'>
+            <OrderList />
           </Route>
+          <Route path='/addReview'>
+            <AddReview />
+          </Route>
+          <Route path='/allOrderList'>
+            <AllOrderList />
+          </Route>
+
+
+
+          <Route path='/addService'>
+            <AddService />
+          </Route>
+          <Route path='/makeAdmin'>
+            <MakeAdmin />
+          </Route>
+          <Route path='/manageServices'>
+            <ManageServices />
+          </Route>
+
+
+
           <Route path='/login'>
             <Login />
           </Route>

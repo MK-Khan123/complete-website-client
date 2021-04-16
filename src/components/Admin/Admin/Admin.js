@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faThLarge, faListAlt, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../../Shared/Navbar/Navbar';
+import './Admin.css';
 
 const Admin = () => {
     return (

@@ -8,21 +8,21 @@ const FreeService = () => {
                 <div className="col-md-7">
                     <h3 style={{ borderBottom: '1px solid black' }}>Get A Free Service <span style={{ color: 'red' }}>Now!</span></h3>
 
-                    <div class="mb-3 pt-3">
-                        <input type="name" class="form-control" placeholder='Enter Name' />
+                    <div className="mb-3 pt-3">
+                        <input type="name" className="form-control" placeholder='Enter Name' />
                     </div>
 
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input type="email" class="form-control" placeholder="Email" aria-label="Email" />
+                    <div className="row mb-3">
+                        <div className="col">
+                            <input type="email" className="form-control" placeholder="Email" aria-label="Email" />
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Phone" aria-label="Phone" />
+                        <div className="col">
+                            <input type="text" className="form-control" placeholder="Phone" aria-label="Phone" />
                         </div>
                     </div>
 
-                    <select class="form-select mb-3">
-                        <option selected>Select your vehicle type</option>
+                    <select className="form-select mb-3">
+                        <option defaultValue>Select your vehicle type</option>
                         <option value="1">SUV</option>
                         <option value="2">Sedan</option>
                         <option value="3">Coupe</option>
@@ -33,12 +33,12 @@ const FreeService = () => {
                         <option value="8">Other</option>
                     </select>
 
-                    <input type="date" class="form-control mb-3" placeholder="Reservation Date" aria-label="Reservation Date" />
+                    <input type="date" className="form-control mb-3" placeholder="Reservation Date" aria-label="Reservation Date" />
 
-                    <button class="btn btn-primary mb-3">Submit</button>
+                    <button className="btn btn-primary mb-3">Submit</button>
                 </div>
                 <div className="col-md-5">
-                    <img className='img-fluid' src={freeServiceImg} alt=""/>
+                    <img className='img-fluid' src={freeServiceImg} alt="" />
                 </div>
             </div>
         </section>
