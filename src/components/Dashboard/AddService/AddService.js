@@ -7,8 +7,6 @@ const AddService = () => {
     const { register, handleSubmit, errors } = useForm();
     const [imageURL, setImageURL] = useState();
 
-    const onSubmit = data => console.log(data);
-
     const handleImageUpload = event => {
         const imageData = new FormData();
         imageData.set('key', '6a505607e7aa21f071b1c0ec3e817fdf');
@@ -22,22 +20,22 @@ const AddService = () => {
         while (currentTime + 4000 >= new Date().getTime());
     };
 
-    // const onSubmit = data => {
-    //     const productData = {
-    //         productName: data.productName,
-    //         productWeight: data.productWeight,
-    //         productPrice: data.productPrice,
-    //         productImage: imageURL
-    //     };
-    //     const url = 'https://localhost/addProduct';
-    //     fetch(url, {
-    //         method: 'POST',
-    //         headers: { 'Content-type': 'application/json' },
-    //         body: JSON.stringify(productData)
-    //     })
-    //         .then(res => console.log('server side response', res));
-    //     alert("Product added successfully! Please go to Home page to see the update.");
-    // };
+    const onSubmit = data => {
+        const serviceData = {
+            serviceName: data.serviceName,
+            serviceDetails: data.serviceDetails,
+            servicePrice: data.servicePrice,
+            serviceImage: imageURL
+        };
+        const url = 'http://localhost:5000/addService';
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(serviceData)
+        })
+            .then(res => console.log('server side response', res));
+        alert("Service added successfully! Please go to Home page to see the update.");
+    };
 
     return (
         <div className='row'>

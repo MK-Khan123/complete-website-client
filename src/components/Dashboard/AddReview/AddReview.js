@@ -7,38 +7,36 @@ const AddReview = () => {
     const { register, handleSubmit, errors } = useForm();
     const [imageURL, setImageURL] = useState();
 
-    const onSubmit = data => console.log(data);
+    const handleImageUpload = event => {
+        const imageData = new FormData();
+        imageData.set('key', '6a505607e7aa21f071b1c0ec3e817fdf');
+        imageData.append('image', event.target.files[0]);
 
-            const handleImageUpload = event => {
-            const imageData = new FormData();
-            imageData.set('key', '6a505607e7aa21f071b1c0ec3e817fdf');
-            imageData.append('image', event.target.files[0]);
-    
-            axios.post('https://api.imgbb.com/1/upload', imageData)
-                .then(res => setImageURL(res.data.data.display_url))
-                .catch(error => console.log(error));
-    
-            const currentTime = new Date().getTime(); //This 4s delay is used so that the image gets uploaded on ImgBB and generates an URL which will be sent to MongoDB database after pressing 'Save'.
-            while (currentTime + 4000 >= new Date().getTime());
+        axios.post('https://api.imgbb.com/1/upload', imageData)
+            .then(res => setImageURL(res.data.data.display_url))
+            .catch(error => console.log(error));
+
+        const currentTime = new Date().getTime(); //This 4s delay is used so that the image gets uploaded on ImgBB and generates an URL which will be sent to MongoDB database after pressing 'Save'.
+        while (currentTime + 4000 >= new Date().getTime());
+    };
+
+    const onSubmit = data => {
+        const reviewData = {
+            name: data.name,
+            designation: data.designation,
+            review: data.review,
+            reviewImage: imageURL
         };
+        const url = 'http://localhost:5000/addReview';
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(reviewData)
+        })
+            .then(res => console.log('server side response', res));
+        alert("Review added successfully! Please go to Home page to see the update.");
+    };
 
-        // const onSubmit = data => {
-    //     const productData = {
-    //         productName: data.productName,
-    //         productWeight: data.productWeight,
-    //         productPrice: data.productPrice,
-    //         productImage: imageURL
-    //     };
-    //     const url = 'https://localhost/addProduct';
-    //     fetch(url, {
-    //         method: 'POST',
-    //         headers: { 'Content-type': 'application/json' },
-    //         body: JSON.stringify(productData)
-    //     })
-    //         .then(res => console.log('server side response', res));
-    //     alert("Product added successfully! Please go to Home page to see the update.");
-    // };
-    
     return (
         <div className='row'>
             <div className="col-md-2">

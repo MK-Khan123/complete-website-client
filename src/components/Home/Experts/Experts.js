@@ -7,24 +7,28 @@ import expertGif from '../../../images/expert.gif';
 
 const expertsData = [
     {
+        id: '1',
         name: 'Jacob Martin',
         designation: 'Chief Technician',
         details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cum?',
         img: expert1
     },
     {
+        id: '2',
         name: 'Steve Smith',
         designation: 'Brake Alignment Expert',
         details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cum?',
         img: expert2
     },
     {
+        id: '3',
         name: 'William Emerson',
         designation: 'Engine Diagnostic Expert',
         details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cum?',
         img: expert3
     },
     {
+        id: '4',
         name: 'Mark Wahlberg',
         designation: 'Wheel Alignment Expert',
         details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cum?',
@@ -40,9 +44,9 @@ const Experts = () => {
                 <div className='row w-75 mt-5'>
                     {
                         expertsData.map(expert => {
-                            const { name, designation, details, img } = expert;
+                            const { name, designation, details, img, id } = expert;
                             return (
-                                <div className='col-md-4 p-2 mb-2'>
+                                <div key={id} className='col-md-4 p-2 mb-2'>
                                     <div className="card shadow" style={{ width: "100%" }}>
                                         <img src={img} style={{ height: "250px" }} className="card-img-top" alt="..." />
                                         <div className="card-body">

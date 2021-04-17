@@ -4,7 +4,7 @@ import { UserContext } from '../../../App';
 import logo from '../../../images/logo.png';
 
 const Navbar = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
 
     return (
         <div className="container">
@@ -19,7 +19,6 @@ const Navbar = () => {
                         <div className="navbar-nav ms-auto align-items-center">
                             <Link className="nav-link ms-5" aria-current="page" to="/home">Home</Link>
                             <Link className="nav-link ms-5" to="/myOrderList">Dashboard</Link>
-                            {/* <Link className="nav-link ms-5" to="/">Admin</Link> */}
                             {loggedInUser.signedInUser ? <Link className="nav-link ms-5" to='/'>{loggedInUser.displayName}</Link>
                                 : <Link className="nav-link ms-5" to="/login"><button className="btn btn-outline-danger">Login</button></Link>}
                         </div>

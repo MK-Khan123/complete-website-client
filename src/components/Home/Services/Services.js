@@ -1,57 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Services.css';
-import oilChange from '../../../images/oil-changing.jpg';
-import brakeRepair from '../../../images/brake-repairing.jpg';
-import engineDiagnose from '../../../images/engine-diagnostic.jpg';
 import titleLogo from '../../../images/support.gif';
 import { Link } from 'react-router-dom';
 
-const serviceData = [
-    {
-        name: 'Oil Changing',
-        price: '200',
-        details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, voluptates!',
-        img: oilChange
-    },
-    {
-        name: 'Brake Repairing',
-        price: '200',
-        details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, voluptates!',
-        img: brakeRepair
-    },
-    {
-        name: 'Engine Diagnostic',
-        price: '200',
-        details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, voluptates!',
-        img: engineDiagnose
-    }
-];
-
 const Services = () => {
+    const [services, setServices] = useState([]);
+
+    useEffect(() => {
+        const url = 'http://localhost:5000/services';
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setServices(data));
+    }, []);
+    
     return (
         <section className='container'>
             <h3 className='border-bottom pt-5'><img src={titleLogo} style={{ height: "70px", width: "6rem" }} alt="" />OUR SERVICES</h3>
             <div className="d-flex justify-content-center">
                 <div className='row mt-5'>
                     {
-                        serviceData.map(service => {
-                            const { name, price, details, img } = service;
+                        services.map(service => {
+                            const { serviceName, servicePrice, serviceDetails, serviceImage, _id } = service;
                             return (
-                                <div className='col-md-4 mb-2'>
+                                <div key={_id} className='col-md-4 mb-2'>
                                     <div className="card shadow photo-frame" style={{ width: "18rem" }}>
                                         <div className='cardImg'>
-                                            <img src={img} style={{ height: "250px" }} className="card-img-top" alt="..." />
+                                            <img src={serviceImage} style={{ height: "250px" }} className="card-img-top" alt="..." />
                                         </div>
                                         <div className='photo-details'>
                                             <h4>Service Details</h4>
-                                            <p className="pt-5">{details}</p>
+                                            <p className="pt-5">{serviceDetails}</p>
                                         </div>
                                         <div className="card-body">
-                                            <h5 className="card-title">{name}</h5>
+                                            <h5 className="card-title">{serviceName}</h5>
                                         </div>
                                         <div className='d-flex justify-content-around pb-2'>
-                                            <h4>$ {price}</h4>
-                                            <Link to="#" className="btn btn-primary">Get service</Link>
+                                            <h4>$ {servicePrice}</h4>
+                                            <Link to={"/orderCheckout/" + _id} className="btn btn-primary">Get service</Link>
                                         </div>
                                     </div>
                                 </div>
