@@ -16,7 +16,7 @@ const MakeAdmin = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-3">
                         <label className="form-label">
-                            <h4>Add Email Address</h4>
+                            <h2 className='mb-3 border-bottom'>Add Email Address</h2>
                         </label>
                         <input name="email" className="form-control" type="email" ref={register({ required: true })} />
                         {errors.email && <span style={{ color: 'red' }}>Email is required</span>}

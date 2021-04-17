@@ -1,12 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import { UserContext } from '../../../App';
+import ProcessPayment from '../ProcessPayment/ProcessPayment';
 import Sidebar from '../Sidebar/Sidebar';
 
 const OrderCheckout = () => {
     const { id } = useParams();
     const [service, setService] = useState({});
     const [loggedInUser] = useContext(UserContext);
+
+    const { register, handleSubmit, errors } = useForm();
 
     useEffect(() => {
         const url = `http://localhost:5000/service/${id}`;
@@ -15,28 +19,31 @@ const OrderCheckout = () => {
             .then(data => setService(data));
     }, [id]);
 
-    const { serviceName, servicePrice, serviceDetails } = service;
+    const { serviceName, servicePrice } = service;
 
-    // const handleCheckout = () => {
-    //     const orderData = {
-    //         name: loggedInUser.displayName,
-    //         email: loggedInUser.email,
-    //         orderTime: new Date(),
-    //         serviceName: serviceName,
-    //         servicePrice: servicePrice,
-    //         serviceDetails: serviceDetails
-    //     };
+    // const onSubmit = data => console.log(data);
 
-    // const url = "http://localhost:5000/addOrder";
-    //     fetch(url, {
-    //         method: 'POST',
-    //         headers: { 'Content-type': 'application/json' },
-    //         body: JSON.stringify(orderData)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => console.log(data));
-    //     alert('Order placed successfully! Please check Orders page');
-    // }
+    const onSubmit = data => {
+        const orderData = {
+            name: loggedInUser.displayName,
+            email: loggedInUser.email,
+            orderTime: new Date(),
+            serviceName: data.serviceName,
+            servicePrice: data.servicePrice,
+            status: 'pending'
+        };
+        console.log(orderData);
+
+        const url = "http://localhost:5000/addOrder";
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(orderData)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data));
+        alert('Order placed successfully! Please check Orders page');
+    }
 
     return (
         <div className='row'>
@@ -44,39 +51,65 @@ const OrderCheckout = () => {
                 <Sidebar />
             </div>
             <div className="col-md-10 p-5" style={{ marginLeft: "250px" }}>
+                <h2 className='mb-3'>Checkout</h2>
+                <form onSubmit={handleSubmit(onSubmit)}>
 
-                <div>
-                    <h2 style={{ paddingTop: '70px', paddingBottom: '20px' }}>Checkout</h2>
-                    <div style={{ border: "1px solid lightgray", borderRadius: "10px" }}>
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Service Name</th>
-                                    <th scope="col">Details</th>
-                                    <th scope="col">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{serviceName}</td>
-                                    <td>{serviceDetails}</td>
-                                    <td>$ {servicePrice}</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr className="table-secondary">
-                                    <td><strong>Total</strong></td>
-                                    <td></td>
-                                    <td>$ {servicePrice}</td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                    <div className="mb-3">
+                        <label className="form-label">
+                            <h5>Your Name</h5>
+                        </label>
+                        <input name="name" defaultValue={loggedInUser.displayName} className="form-control" type="text" ref={register({ required: true })} />
+                        {errors.name && <span style={{ color: 'red' }}>Your name is required</span>}
                     </div>
-                    <div style={{ marginTop: '10px', textAlign: 'end' }}>
-                        <button style={{ borderRadius: '7px' }} className='btn btn-success'>Checkout</button> {/*onClick={handleCheckout} */}
+
+                    <div className="mb-3">
+                        <label className="form-label">
+                            <h5>Your email</h5>
+                        </label>
+                        <input name="email" defaultValue={loggedInUser.email} className="form-control" type="email" ref={register({ required: true })} />
+                        {errors.email && <span style={{ color: 'red' }}>Your email is required</span>}
                     </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">
+                            <h5>Service Name</h5>
+                        </label>
+                        <input name="serviceName" defaultValue={serviceName} className="form-control" type="text" ref={register({ required: true })} />
+                        {errors.serviceName && <span style={{ color: 'red' }}>Service name is required</span>}
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">
+                            <h5>Service Price</h5>
+                        </label>
+                        <input name="servicePrice" defaultValue={servicePrice} className="form-control" type="number" ref={register({ required: true })} />
+                        {errors.servicePrice && <span style={{ color: 'red' }}>Service price is required</span>}
+                    </div>
+
+                    <div style={{ textAlign: "end", paddingBottom: "50px" }}>
+                        <button className="btn btn-success" type="submit">Checkout</button>
+                    </div>
+
+                </form>
+
+                <h6>Pay Now (you can book our service now by pressing the Checkout button and pay later!)</h6>
+
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label className="form-check-label" htmlFor="flexRadioDefault1">
+                        Credit Card
+                    </label>
+                </div>
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                    <label className="form-check-label" htmlFor="flexRadioDefault2">
+                        Debit Card
+                    </label>
                 </div>
 
+                <div className='p-3 border'>
+                    <ProcessPayment />
+                </div>
 
             </div>
         </div>
