@@ -16,7 +16,7 @@ const AddReview = () => {
             .then(res => setImageURL(res.data.data.display_url))
             .catch(error => console.log(error));
 
-        const currentTime = new Date().getTime(); //This 4s delay is used so that the image gets uploaded on ImgBB and generates an URL which will be sent to MongoDB database after pressing 'Save'.
+        const currentTime = new Date().getTime(); //This 4s delay is used so that the image gets uploaded on ImgBB and generates an URL which will be sent to MongoDB database after pressing 'Add Review'.
         while (currentTime + 4000 >= new Date().getTime());
     };
 

@@ -19,6 +19,8 @@ const Navbar = () => {
                         <div className="navbar-nav ms-auto align-items-center">
                             <Link className="nav-link ms-5" aria-current="page" to="/home">Home</Link>
                             <Link className="nav-link ms-5" to="/myOrderList">Dashboard</Link>
+                            <Link className="nav-link ms-5" to="/ourTeam">Our Team</Link>
+                            <Link className="nav-link ms-5" to="/contactUs">Contact Us</Link>
                             {loggedInUser.signedInUser ? <Link className="nav-link ms-5" to='/'>{loggedInUser.displayName}</Link>
                                 : <Link className="nav-link ms-5" to="/login"><button className="btn btn-outline-danger">Login</button></Link>}
                         </div>

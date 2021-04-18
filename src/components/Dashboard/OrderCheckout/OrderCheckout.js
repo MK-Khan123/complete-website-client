@@ -21,8 +21,6 @@ const OrderCheckout = () => {
 
     const { serviceName, servicePrice } = service;
 
-    // const onSubmit = data => console.log(data);
-
     const onSubmit = data => {
         const orderData = {
             name: loggedInUser.displayName,
@@ -32,7 +30,6 @@ const OrderCheckout = () => {
             servicePrice: data.servicePrice,
             status: 'pending'
         };
-        console.log(orderData);
 
         const url = "http://localhost:5000/addOrder";
         fetch(url, {
@@ -42,7 +39,7 @@ const OrderCheckout = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data));
-        alert('Order placed successfully! Please check Orders page');
+        alert('Order placed successfully!');
     }
 
     return (

@@ -12,7 +12,7 @@ const Services = () => {
             .then(res => res.json())
             .then(data => setServices(data));
     }, []);
-    
+
     return (
         <section className='container'>
             <h3 className='border-bottom pt-5'><img src={titleLogo} style={{ height: "70px", width: "6rem" }} alt="" />OUR SERVICES</h3>
@@ -22,8 +22,8 @@ const Services = () => {
                         services.map(service => {
                             const { serviceName, servicePrice, serviceDetails, serviceImage, _id } = service;
                             return (
-                                <div key={_id} className='col-md-4 mb-2'>
-                                    <div className="card shadow photo-frame" style={{ width: "18rem" }}>
+                                <div key={_id} className='col-md-4 p-2 mb-2'>
+                                    <div className="card shadow photo-frame" style={{ width: "80%" }}>
                                         <div className='cardImg'>
                                             <img src={serviceImage} style={{ height: "250px" }} className="card-img-top" alt="..." />
                                         </div>

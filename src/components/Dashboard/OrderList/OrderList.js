@@ -22,12 +22,6 @@ const OrderList = () => {
                 <h2 className='mb-3 border-bottom'>My Order Summary</h2>
                 <h5 className="text-center pt-3">Greetings {loggedInUser.displayName}!</h5>
                 {
-                    orders.length === 0 &&
-                    <div className="text-center mt-5">
-                        <h4>No services booked yet!</h4>
-                    </div>
-                }
-                {
                     orders.length !== 0 &&
                     <table className="table table-dark table-striped mt-5">
                         <thead>

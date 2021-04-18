@@ -12,9 +12,9 @@ const AllOrderList = () => {
     }, []);
 
     const handleStatus = (id, status) => {
-        
+
         const updateStatus = { id, status };
-        
+
         const url = `http://localhost:5000/updateStatus/${id}`;
         fetch(url, {
             method: 'PATCH',

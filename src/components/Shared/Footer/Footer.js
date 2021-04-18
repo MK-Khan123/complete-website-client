@@ -47,7 +47,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <p className='text-white text-center' style={{borderTop: '1px solid gray'}}>Copyright {(new Date()).getFullYear()} All Rights Reserved</p>
+            <p className='text-white text-center' style={{ borderTop: '1px solid gray' }}>Copyright {(new Date()).getFullYear()} All Rights Reserved</p>
         </section>
     );
 };
