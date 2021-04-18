@@ -27,7 +27,7 @@ const AddReview = () => {
             review: data.review,
             reviewImage: imageURL
         };
-        const url = 'http://localhost:5000/addReview';
+        const url = 'https://polar-gorge-00039.herokuapp.com/addReview';
         fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },

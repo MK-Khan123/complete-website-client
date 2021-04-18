@@ -7,14 +7,14 @@ const ManageServices = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        const url = 'http://localhost:5000/services';
+        const url = 'https://polar-gorge-00039.herokuapp.com/services';
         fetch(url)
             .then(res => res.json())
             .then(data => setServices(data));
     }, []);
 
     const handleDeleteService = (id) => {
-        const url = `http://localhost:5000/deleteService/${id}`;
+        const url = `https://polar-gorge-00039.herokuapp.com/deleteService/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

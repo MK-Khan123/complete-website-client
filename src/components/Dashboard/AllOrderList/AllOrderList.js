@@ -5,7 +5,7 @@ const AllOrderList = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        const url = 'http://localhost:5000/allOrders';
+        const url = 'https://polar-gorge-00039.herokuapp.com/allOrders';
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));
@@ -15,7 +15,7 @@ const AllOrderList = () => {
 
         const updateStatus = { id, status };
 
-        const url = `http://localhost:5000/updateStatus/${id}`;
+        const url = `https://polar-gorge-00039.herokuapp.com/updateStatus/${id}`;
         fetch(url, {
             method: 'PATCH',
             headers: { 'Content-type': 'application/json' },

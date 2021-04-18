@@ -13,7 +13,7 @@ const OrderCheckout = () => {
     const { register, handleSubmit, errors } = useForm();
 
     useEffect(() => {
-        const url = `http://localhost:5000/service/${id}`;
+        const url = `https://polar-gorge-00039.herokuapp.com/service/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setService(data));
@@ -31,7 +31,7 @@ const OrderCheckout = () => {
             status: 'pending'
         };
 
-        const url = "http://localhost:5000/addOrder";
+        const url = "https://polar-gorge-00039.herokuapp.com/addOrder";
         fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },

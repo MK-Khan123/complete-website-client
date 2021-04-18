@@ -10,7 +10,7 @@ const MakeAdmin = () => {
             email: data.email
         };
 
-        const url = 'http://localhost:5000/addAdmin';
+        const url = 'https://polar-gorge-00039.herokuapp.com/addAdmin';
         fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },

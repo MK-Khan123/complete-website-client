@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        const url = 'http://localhost:5000/isAdmin?email=' + loggedInUser.email;
+        const url = 'https://polar-gorge-00039.herokuapp.com/isAdmin?email=' + loggedInUser.email;
         fetch(url)
             .then(res => res.json())
             .then(data => {

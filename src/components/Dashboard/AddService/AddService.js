@@ -27,7 +27,7 @@ const AddService = () => {
             servicePrice: data.servicePrice,
             serviceImage: imageURL
         };
-        const url = 'http://localhost:5000/addService';
+        const url = 'https://polar-gorge-00039.herokuapp.com/addService';
         fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
