@@ -19,7 +19,7 @@ const OrderList = () => {
                 <Sidebar />
             </div>
             <div className="col-md-10 p-5" style={{ marginLeft: "250px" }}>
-                <h2 className='mb-3 border-bottom'>My Order Summary</h2>
+                <h2 className='mb-3 border-bottom'>Orders</h2>
                 <h5 className="text-center pt-3">Greetings {loggedInUser.displayName}!</h5>
                 {
                     orders.length !== 0 &&

@@ -23,7 +23,7 @@ const Services = () => {
                             const { serviceName, servicePrice, serviceDetails, serviceImage, _id } = service;
                             return (
                                 <div key={_id} className='col-md-4 p-2 mb-2'>
-                                    <div className="card shadow photo-frame" style={{ width: "80%" }}>
+                                    <div className="card shadow photo-frame" style={{ width: "100%" }}>
                                         <div className='cardImg'>
                                             <img src={serviceImage} style={{ height: "250px" }} className="card-img-top" alt="..." />
                                         </div>
