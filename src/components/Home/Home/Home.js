@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../Shared/Footer/Footer';
 import Experts from '../Experts/Experts';
 import FreeService from '../FreeService/FreeService';
 import Header from '../Header/Header';
@@ -15,6 +16,7 @@ const Home = () => {
             <Reviews />
             <Experts />
             <FreeService />
+            <Footer />
         </div>
     );
 };
