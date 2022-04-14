@@ -27,7 +27,7 @@ const AddReview = () => {
             review: data.review,
             reviewImage: imageURL
         };
-        const url = 'https://polar-gorge-00039.herokuapp.com/addReview';
+        const url = 'https://desolate-springs-76107.herokuapp.com/addReview';
         fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },

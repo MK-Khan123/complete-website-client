@@ -7,7 +7,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        const url = 'https://polar-gorge-00039.herokuapp.com/services';
+        const url = 'https://desolate-springs-76107.herokuapp.com/services';
         fetch(url)
             .then(res => res.json())
             .then(data => setServices(data));
@@ -16,8 +16,8 @@ const Services = () => {
     return (
         <section className='container'>
             <h3 className='border-bottom pt-5'><img src={titleLogo} style={{ height: "70px", width: "6rem" }} alt="" />OUR SERVICES</h3>
-            <div className="d-flex justify-content-center">
-                <div className='row mt-5'>
+            <div className="d-flex justify-content-center flex-wrap">
+                {/* <div className='mt-5'> */}
                     {
                         services.map(service => {
                             const { serviceName, servicePrice, serviceDetails, serviceImage, _id } = service;
@@ -43,7 +43,7 @@ const Services = () => {
                             );
                         })
                     }
-                </div>
+                {/* </div> */}
             </div>
         </section>
     );

@@ -13,7 +13,7 @@ const OrderCheckout = () => {
     const { register, handleSubmit, errors } = useForm();
 
     useEffect(() => {
-        const url = `https://polar-gorge-00039.herokuapp.com/service/${id}`;
+        const url = `https://desolate-springs-76107.herokuapp.com/service/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setService(data));
@@ -31,7 +31,7 @@ const OrderCheckout = () => {
             status: 'pending'
         };
 
-        const url = "https://polar-gorge-00039.herokuapp.com/addOrder";
+        const url = "https://desolate-springs-76107.herokuapp.com/addOrder";
         fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },

@@ -7,7 +7,7 @@ const OrderList = () => {
     const [loggedInUser] = useContext(UserContext);
 
     useEffect(() => {
-        const url = 'https://polar-gorge-00039.herokuapp.com/orders?email=' + loggedInUser.email;
+        const url = 'https://desolate-springs-76107.herokuapp.com/orders?email=' + loggedInUser.email;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));

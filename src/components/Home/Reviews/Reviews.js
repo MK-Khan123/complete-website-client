@@ -5,7 +5,7 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        const url = 'https://polar-gorge-00039.herokuapp.com/reviews';
+        const url = 'https://desolate-springs-76107.herokuapp.com/reviews';
         fetch(url)
             .then(res => res.json())
             .then(data => setReviews(data));

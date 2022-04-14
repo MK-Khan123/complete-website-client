@@ -27,7 +27,7 @@ const AddService = () => {
             servicePrice: data.servicePrice,
             serviceImage: imageURL
         };
-        const url = 'https://polar-gorge-00039.herokuapp.com/addService';
+        const url = 'https://desolate-springs-76107.herokuapp.com/addService';
         fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
