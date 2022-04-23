@@ -15,7 +15,7 @@ const Footer = () => {
                         <h3 className='text-white mb-4'>City Wheels Auto Shop</h3>
                     </div>
                     <p className="text-secondary">Sector-11, Uttara - 1230, Dhaka, Bangladesh</p>
-                    <div className="d-flex flex-column text-white text-start">
+                    <div className="d-flex flex-column text-secondary">
                         <p><span className='text-info'><FontAwesomeIcon icon={faPhoneAlt} /></span> 123-456-789</p>
                         <p><span className='text-info'><FontAwesomeIcon icon={faEnvelope} /></span> contact@yourdomain.com</p>
                         <p><span className='text-info'><FontAwesomeIcon icon={faGlobe} /></span> www.yourdomain.com</p>
