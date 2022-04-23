@@ -25,51 +25,53 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
 
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <Router>
-        <Switch>
-          <Route path='/home'>
-            <Home />
-          </Route>
-          <PrivateRoute path='/orderCheckout/:id'>
-            <OrderCheckout />
-          </PrivateRoute>
-          <PrivateRoute path='/myOrderList'>
-            <OrderList />
-          </PrivateRoute>
-          <PrivateRoute path='/addReview'>
-            <AddReview />
-          </PrivateRoute>
-          <PrivateRoute path='/allOrderList'>
-            <AllOrderList />
-          </PrivateRoute>
-          <PrivateRoute path='/addService'>
-            <AddService />
-          </PrivateRoute>
-          <PrivateRoute path='/makeAdmin'>
-            <MakeAdmin />
-          </PrivateRoute>
-          <PrivateRoute path='/manageServices'>
-            <ManageServices />
-          </PrivateRoute>
-          <Route path='/contactUs'>
-            <ContactUs />
-          </Route>
-          <Route path='/ourTeam'>
-            <OurTeam />
-          </Route>
-          <Route path='/login'>
-            <Login />
-          </Route>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='*'>
-            <NoMatch />
-          </Route>
-        </Switch>
-      </Router>
-    </UserContext.Provider>
+    <div className="App">
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+        <Router>
+          <Switch>
+            <Route path='/home'>
+              <Home />
+            </Route>
+            <PrivateRoute path='/orderCheckout/:id'>
+              <OrderCheckout />
+            </PrivateRoute>
+            <PrivateRoute path='/myOrderList'>
+              <OrderList />
+            </PrivateRoute>
+            <PrivateRoute path='/addReview'>
+              <AddReview />
+            </PrivateRoute>
+            <PrivateRoute path='/allOrderList'>
+              <AllOrderList />
+            </PrivateRoute>
+            <PrivateRoute path='/addService'>
+              <AddService />
+            </PrivateRoute>
+            <PrivateRoute path='/makeAdmin'>
+              <MakeAdmin />
+            </PrivateRoute>
+            <PrivateRoute path='/manageServices'>
+              <ManageServices />
+            </PrivateRoute>
+            <Route path='/contactUs'>
+              <ContactUs />
+            </Route>
+            <Route path='/ourTeam'>
+              <OurTeam />
+            </Route>
+            <Route path='/login'>
+              <Login />
+            </Route>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route path='*'>
+              <NoMatch />
+            </Route>
+          </Switch>
+        </Router>
+      </UserContext.Provider>
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faCommentDots, faListAlt, faUserPlus, faThLarge, faPlusSquare, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faCommentDots, faListAlt, faUserPlus, faThLarge, faPlusSquare, faHome } from '@fortawesome/free-solid-svg-icons';
 import './Sidebar.css';
 import { UserContext } from '../../../App';
 
@@ -26,9 +26,6 @@ const Sidebar = () => {
             {
                 isAdmin ||
                 <div>
-                    <div>
-                        <Link to="/" className="nav-link text-white" aria-current="true"><FontAwesomeIcon icon={faCartPlus} /> My Order</Link>
-                    </div>
                     <div>
                         <Link to="/myOrderList" className="nav-link text-white"><FontAwesomeIcon icon={faListAlt} /> My Order List</Link>
                     </div>

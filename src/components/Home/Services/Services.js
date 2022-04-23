@@ -15,7 +15,7 @@ const Services = () => {
 
     return (
         <section className='container'>
-            <h3 className='border-bottom pt-5'><img src={titleLogo} style={{ height: "70px", width: "6rem" }} alt="" />OUR SERVICES</h3>
+            <h3 className='border-bottom pt-5'><img src={titleLogo} style={{ height: "72px", width: "96px" }} alt="" />OUR SERVICES</h3>
             <div className="d-flex justify-content-center flex-wrap">
                 {/* <div className='mt-5'> */}
                     {

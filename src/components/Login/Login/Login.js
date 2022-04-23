@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import loginImg from '../../../images/loginBg.jpg';
-import Navbar from '../../Shared/Navbar/Navbar';
+import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import { UserContext } from '../../../App';
 import { useHistory, useLocation } from 'react-router';
 import firebaseConfig from './firebase.config';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 //To handle [DEFAULT] error.
 if (!firebase.apps.length) {
@@ -40,31 +41,31 @@ const Login = () => {
 
     return (
         <section>
-            <Navbar />
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-4 shadow p-5 mb-2">
+            <NavigationBar />
+            <Container>
+                <Row className="my-5">
+                    <Col md={4} className="shadow rounded-3 p-4">
                         <h3>Login</h3>
-                        <div className="mb-3">
-                            <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                            <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                            <input type="password" className="form-control" id="exampleInputPassword1" />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="" className="text-danger">Forgot your password?</label>
-                        </div>
-                        <button onClick={handleGoogleSignIn} className="btn btn-primary">Google Sign In</button>
-                    </div>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="Password" />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicLabel">
+                            <Form.Label className='text-danger'>Forgot your password?</Form.Label>
+                        </Form.Group>
+                        <Button variant={'primary'} onClick={handleGoogleSignIn}>Google Sign In</Button>
+                    </Col>
 
-                    <div className="col-md-6 ms-auto">
+                    <Col md={7} className="ms-auto">
                         <img src={loginImg} className="img-fluid" alt="" />
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
         </section>
     );
 };

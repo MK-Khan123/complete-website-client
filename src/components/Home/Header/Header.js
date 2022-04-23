@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from '../../Shared/Navbar/Navbar';
+import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 
 const Header = () => {
     return (
-        <Navbar />
+        <NavigationBar />
     );
 };
 
