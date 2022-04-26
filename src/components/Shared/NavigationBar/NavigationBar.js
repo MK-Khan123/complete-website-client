@@ -42,25 +42,6 @@ const NavigationBar = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-
-            {/* <nav className="navbar navbar-expand-lg navbar-light">
-                    <div className="container-fluid">
-                        <img src={logo} alt="" width="60" />
-                        <Link className="navbar-brand" to="/">City Wheels Auto Shop</Link>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div className="navbar-nav ms-auto align-items-center">
-                                <Link className="nav-link ms-5" aria-current="page" to="/home">Home</Link>
-                                <Link className="nav-link ms-5" to="/myOrderList">Dashboard</Link>
-                                <Link className="nav-link ms-5" to="/ourTeam">Our Team</Link>
-                                <Link className="nav-link ms-5" to="/contactUs">Contact Us</Link>
-                            </div>
-                        </div>
-                    </div>
-                </nav> 
-            */}
         </Container>
     );
 };

@@ -3,6 +3,7 @@ import { Carousel, Container } from 'react-bootstrap';
 import img1 from '../../../images/carouselBg1.jpg';
 import img2 from '../../../images/carouselBg2.jpg';
 import img3 from '../../../images/carouselBg3.jpg';
+import './HeaderMain.css';
 
 const HeaderMain = () => {
     return (
@@ -10,8 +11,7 @@ const HeaderMain = () => {
             <Carousel fade>
                 <Carousel.Item>
                     <img
-                        className="d-block w-100"
-                        style={{ borderRadius: '8px', maxHeight: '600px' }}
+                        className="d-block w-100 carousel-image"
                         src={img1}
                         alt="First slide"
                     />
@@ -22,8 +22,7 @@ const HeaderMain = () => {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        className="d-block w-100"
-                        style={{ borderRadius: '8px', maxHeight: '600px' }}
+                        className="d-block w-100 carousel-image"
                         src={img2}
                         alt="Second slide"
                     />
@@ -34,8 +33,7 @@ const HeaderMain = () => {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        className="d-block w-100"
-                        style={{ borderRadius: '8px', maxHeight: '600px' }}
+                        className="d-block w-100 carousel-image"
                         src={img3}
                         alt="Third slide"
                     />

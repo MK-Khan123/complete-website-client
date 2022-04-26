@@ -6,7 +6,7 @@ import expert4 from '../../../images/expert4.jpg';
 import expert5 from '../../../images/expert5.jpg';
 import expert6 from '../../../images/expert6.jpg';
 import expertGif from '../../../images/expert.gif';
-import { Container } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faPinterest, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
@@ -55,32 +55,32 @@ const Experts = () => {
             <h2 className='border-bottom mt-5 fw-bold'>
                 <img src={expertGif} style={{ height: "72px", width: "96px" }} alt="" />OUR EXPERTS
             </h2>
-            <div className='row gy-4 mt-4'>
+            <Row className='gy-4 mt-4'>
                 {
                     expertsData.map(expert => {
                         const { name, designation, img, id } = expert;
                         return (
-                            <div key={id} className='col-sm-6 col-lg-4'>
-                                <div className="card shadow photo-frame">
+                            <Col sm={6} lg={4} key={id}>
+                                <Card className="card shadow photo-frame">
                                     <div className="card-image">
-                                        <img src={img} style={{ height: "250px" }} className="card-img-top" alt="..." />
+                                        <Card.Img src={img} style={{ height: "250px" }} variant='top' />
                                     </div>
-                                    <div className="card-body">
-                                        <h4 className="card-title text-center">{name}</h4>
-                                        <p className="card-text text-center">{designation}</p>
+                                    <Card.Body>
+                                        <Card.Title className="text-center">{name}</Card.Title>
+                                        <Card.Text className="text-center">{designation}</Card.Text>
                                         <div className='d-flex justify-content-center'>
                                             <span style={{ color: '#3b5998' }}><FontAwesomeIcon size='lg' icon={faFacebook} /></span>
                                             <span className='ms-4' style={{ color: '#1DA1F2' }}><FontAwesomeIcon size='lg' icon={faTwitter} /></span>
                                             <span className='ms-4' style={{ color: 'black' }}><FontAwesomeIcon size='lg' icon={faInstagram} /></span>
                                             <span className='ms-4' style={{ color: '#BE0216' }}><FontAwesomeIcon size='lg' icon={faPinterest} /></span>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
                         );
                     })
                 }
-            </div>
+            </Row>
         </Container>
     );
 };

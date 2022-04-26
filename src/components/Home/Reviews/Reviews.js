@@ -87,29 +87,6 @@ const Reviews = () => {
                     }
                 </Swiper>
             </div>
-
-            {/* <h3 className='border-bottom pt-5'><img src={feedback} style={{ height: "72px", width: "96px" }} alt="" />WHAT OUR CLIENTS SAY</h3>
-                            <Row className='mt-5'>
-                                {
-                                    reviews.map(reviewData => {
-                                        const { name, designation, review, reviewImage, _id } = reviewData;
-                                        return (
-                                            <Col md={3} key={_id} className='p-2 mb-2'>
-                                                <div className='d-flex justify-content-center'>
-                                                    <Card className="shadow" style={{ width: "18rem" }}>
-                                                        <Card.Img src={reviewImage} style={{ height: "250px" }} className="card-img-top" alt="..." />
-                                                        <Card.Body>
-                                                            <Card.Title>{name}</Card.Title>
-                                                            <Card.Subtitle>{designation}</Card.Subtitle>
-                                                            <Card.Text className='py-3'>{review}</Card.Text>
-                                                        </Card.Body>
-                                                    </Card>
-                                                </div>
-                                            </Col>
-                                        );
-                                    })
-                                }
-                            </Row> */}
         </Container>
     );
 };
