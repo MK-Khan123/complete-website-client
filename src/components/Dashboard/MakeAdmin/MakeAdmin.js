@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -21,25 +22,25 @@ const MakeAdmin = () => {
     };
 
     return (
-        <div className='row'>
-            <div className="col-md-2">
+        <Row>
+            <Col md={2}>
                 <Sidebar />
-            </div>
-            <div className="col-md-10 p-5" style={{ marginLeft: "250px" }}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="mb-3">
-                        <label className="form-label">
+            </Col>
+            <Col md={9} style={{ marginLeft: "250px" }}>
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="mb-2">
+                        <Form.Label>
                             <h2 className='mb-3 border-bottom'>Add Email Address</h2>
-                        </label>
-                        <input name="email" className="form-control" type="email" ref={register({ required: true })} />
-                        {errors.email && <span style={{ color: 'red' }}>Email is required</span>}
+                        </Form.Label>
+                        <Form.Control name="email" type="email" ref={register({ required: true })} />
+                        {errors.email && <div style={{ color: 'red', marginTop: '15px' }}>Email is required</div>}
                     </div>
-                    <div style={{ textAlign: "end" }}>
-                        <button className="btn btn-success" type="submit">Add as an admin</button>
+                    <div className='text-end'>
+                        <Button variant="success" type="submit">Add as an admin</Button>
                     </div>
-                </form>
-            </div>
-        </div>
+                </Form>
+            </Col>
+        </Row>
     );
 };
 

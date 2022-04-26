@@ -22,38 +22,40 @@ const Sidebar = () => {
     }, [loggedInUser.email]);
 
     return (
-        <div className="sidebar d-flex flex-column col-md-2 py-5 px-4" style={{ height: "100vh" }}>
-            {
-                isAdmin ||
-                <div>
+        <div style={{ position: 'relative', height: '100vh' }}>
+            <div className="sidebar py-5 px-2">
+                {
+                    isAdmin ||
                     <div>
-                        <Link to="/myOrderList" className="nav-link text-white"><FontAwesomeIcon icon={faListAlt} /> My Order List</Link>
+                        <div>
+                            <Link to="/myOrderList" className="nav-link text-white"><FontAwesomeIcon icon={faListAlt} /> My Order List</Link>
+                        </div>
+                        <div>
+                            <Link to="/addReview" className="nav-link text-white"><FontAwesomeIcon icon={faCommentDots} /> Add Review</Link>
+                        </div>
                     </div>
-                    <div>
-                        <Link to="/addReview" className="nav-link text-white"><FontAwesomeIcon icon={faCommentDots} /> Add Review</Link>
-                    </div>
-                </div>
-            }
+                }
 
-            { isAdmin &&
-                <div>
+                {isAdmin &&
                     <div>
-                        <Link to="/allOrderList" className="nav-link text-white"><FontAwesomeIcon icon={faListAlt} /> All Order List</Link>
+                        <div>
+                            <Link to="/allOrderList" className="nav-link text-white"><FontAwesomeIcon icon={faListAlt} /> All Order List</Link>
+                        </div>
+                        <div>
+                            <Link to="/addService" className="nav-link text-white" aria-current="true"><FontAwesomeIcon icon={faPlusSquare} /> Add Service</Link>
+                        </div>
+                        <div>
+                            <Link to="/makeAdmin" className="nav-link text-white"><FontAwesomeIcon icon={faUserPlus} /> Make Admin</Link>
+                        </div>
+                        <div>
+                            <Link to="/manageServices" className="nav-link text-white"><FontAwesomeIcon icon={faThLarge} /> Manage Services</Link>
+                        </div>
                     </div>
-                    <div>
-                        <Link to="/addService" className="nav-link text-white" aria-current="true"><FontAwesomeIcon icon={faPlusSquare} /> Add Service</Link>
-                    </div>
-                    <div>
-                        <Link to="/makeAdmin" className="nav-link text-white"><FontAwesomeIcon icon={faUserPlus} /> Make Admin</Link>
-                    </div>
-                    <div>
-                        <Link to="/manageServices" className="nav-link text-white"><FontAwesomeIcon icon={faThLarge} /> Manage Services</Link>
-                    </div>
-                </div>
-            }
+                }
 
-            <div>
-                <Link to="/" className="nav-link text-white"><FontAwesomeIcon icon={faHome} /> Home</Link>
+                <div>
+                    <Link to="/" className="nav-link text-white"><FontAwesomeIcon icon={faHome} /> Home</Link>
+                </div>
             </div>
         </div>
     );

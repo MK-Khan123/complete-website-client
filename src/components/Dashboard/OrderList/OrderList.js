@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../App';
+import { Col, Row, Table } from 'react-bootstrap';
 import Sidebar from '../Sidebar/Sidebar';
 
 const OrderList = () => {
@@ -14,24 +15,24 @@ const OrderList = () => {
     }, [loggedInUser.email]);
 
     return (
-        <div className='row'>
-            <div className="col-md-2">
+        <Row>
+            <Col md={2}>
                 <Sidebar />
-            </div>
-            <div className="col-md-10 p-5" style={{ marginLeft: "250px" }}>
+            </Col>
+            <Col md={10} className="p-5" style={{ marginLeft: "250px" }}>
                 <h2 className='mb-3 border-bottom'>Orders</h2>
                 <h5 className="text-center pt-3">Greetings {loggedInUser.displayName}!</h5>
                 {
                     orders.length !== 0 &&
-                    <table className="table table-dark table-striped mt-5">
+                    <Table striped variant='dark' className="mt-5">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Service Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Order Date</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Status</th>
+                                <th>#</th>
+                                <th>Service Name</th>
+                                <th>Price</th>
+                                <th>Order Date</th>
+                                <th>Email</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,7 +41,7 @@ const OrderList = () => {
                                     const { serviceName, servicePrice, orderTime, email, status, _id } = order;
                                     return (
                                         <tr key={_id}>
-                                            <th scope="row">{index + 1}</th>
+                                            <td>{index + 1}</td>
                                             <td>{serviceName}</td>
                                             <td>$ {servicePrice}</td>
                                             <td>{new Date(orderTime).toDateString('dd/MM/yyyy')}</td>
@@ -51,10 +52,10 @@ const OrderList = () => {
                                 })
                             }
                         </tbody>
-                    </table>
+                    </Table>
                 }
-            </div>
-        </div>
+            </Col>
+        </Row>
     );
 };
 

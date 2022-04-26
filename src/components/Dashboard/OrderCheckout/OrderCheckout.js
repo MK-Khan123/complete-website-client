@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import { UserContext } from '../../../App';
+import { Col, Form, Row, Button } from 'react-bootstrap';
 import ProcessPayment from '../ProcessPayment/ProcessPayment';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -43,73 +44,55 @@ const OrderCheckout = () => {
     }
 
     return (
-        <div className='row'>
-            <div className="col-md-2">
+        <Row>
+            <Col md={2}>
                 <Sidebar />
-            </div>
-            <div className="col-md-10 p-5" style={{ marginLeft: "250px" }}>
+            </Col>
+            <Col md={10} className="p-5" style={{ marginLeft: "250px" }}>
                 <h2 className='mb-3'>Checkout</h2>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <Form onSubmit={handleSubmit(onSubmit)}>
 
                     <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Your Name</h5>
-                        </label>
-                        <input name="name" defaultValue={loggedInUser.displayName} className="form-control" type="text" ref={register({ required: true })} />
+                        <Form.Label><h5>Your Name</h5></Form.Label>
+                        <Form.Control name="name" defaultValue={loggedInUser.displayName} type="text" ref={register({ required: true })} />
                         {errors.name && <span style={{ color: 'red' }}>Your name is required</span>}
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Your email</h5>
-                        </label>
-                        <input name="email" defaultValue={loggedInUser.email} className="form-control" type="email" ref={register({ required: true })} />
+                        <Form.Label><h5>Your email</h5></Form.Label>
+                        <Form.Control name="email" defaultValue={loggedInUser.email} type="email" ref={register({ required: true })} />
                         {errors.email && <span style={{ color: 'red' }}>Your email is required</span>}
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Service Name</h5>
-                        </label>
-                        <input name="serviceName" defaultValue={serviceName} className="form-control" type="text" ref={register({ required: true })} />
+                        <Form.Label><h5>Service Name</h5></Form.Label>
+                        <Form.Control name="serviceName" defaultValue={serviceName} type="text" ref={register({ required: true })} />
                         {errors.serviceName && <span style={{ color: 'red' }}>Service name is required</span>}
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Service Price</h5>
-                        </label>
-                        <input name="servicePrice" defaultValue={servicePrice} className="form-control" type="number" ref={register({ required: true })} />
+                        <Form.Label><h5>Service Price</h5></Form.Label>
+                        <Form.Control name="servicePrice" defaultValue={servicePrice} type="number" ref={register({ required: true })} />
                         {errors.servicePrice && <span style={{ color: 'red' }}>Service price is required</span>}
                     </div>
 
                     <div style={{ textAlign: "end", paddingBottom: "50px" }}>
-                        <button className="btn btn-success" type="submit">Checkout</button>
+                        <Button variant='success' type="submit">Checkout</Button>
                     </div>
 
-                </form>
+                </Form>
 
                 <h6>Pay Now (you can book our service now by pressing the Checkout button and pay later!)</h6>
 
-                <div className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                    <label className="form-check-label" htmlFor="flexRadioDefault1">
-                        Credit Card
-                    </label>
-                </div>
-                <div className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
-                    <label className="form-check-label" htmlFor="flexRadioDefault2">
-                        Debit Card
-                    </label>
-                </div>
+                <Form.Check type="radio" name="flexRadioDefault" label='Credit Card' id="flexRadioDefault1" />
+                <Form.Check type="radio" name="flexRadioDefault" label='Debit Card' id="flexRadioDefault2" />
 
                 <div className='p-3 border'>
                     <ProcessPayment />
                 </div>
 
-            </div>
-        </div>
+            </Col>
+        </Row>
     );
 };
 
