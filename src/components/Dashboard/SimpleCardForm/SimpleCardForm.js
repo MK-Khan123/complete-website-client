@@ -1,5 +1,6 @@
 import React from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { Button, Form } from 'react-bootstrap';
 
 const SimpleCardForm = () => {
     const stripe = useStripe();
@@ -34,14 +35,14 @@ const SimpleCardForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <CardElement />
-            <div className='p-4'>
-                <button className='btn btn-success' type="submit" disabled={!stripe}>
+            <Form.Group className='p-4'>
+                <Button variant='success' type="submit" disabled={!stripe}>
                     Pay
-                </button>
-            </div>
-        </form>
+                </Button>
+            </Form.Group>
+        </Form>
     );
 };
 

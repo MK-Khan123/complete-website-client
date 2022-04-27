@@ -52,33 +52,33 @@ const OrderCheckout = () => {
                 <h2 className='mb-3'>Checkout</h2>
                 <Form onSubmit={handleSubmit(onSubmit)}>
 
-                    <div className="mb-3">
+                    <Form.Group className="mb-3">
                         <Form.Label><h5>Your Name</h5></Form.Label>
                         <Form.Control name="name" defaultValue={loggedInUser.displayName} type="text" ref={register({ required: true })} />
                         {errors.name && <span style={{ color: 'red' }}>Your name is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div className="mb-3">
+                    <Form.Group className="mb-3">
                         <Form.Label><h5>Your email</h5></Form.Label>
                         <Form.Control name="email" defaultValue={loggedInUser.email} type="email" ref={register({ required: true })} />
                         {errors.email && <span style={{ color: 'red' }}>Your email is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div className="mb-3">
+                    <Form.Group className="mb-3">
                         <Form.Label><h5>Service Name</h5></Form.Label>
                         <Form.Control name="serviceName" defaultValue={serviceName} type="text" ref={register({ required: true })} />
                         {errors.serviceName && <span style={{ color: 'red' }}>Service name is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div className="mb-3">
+                    <Form.Group className="mb-3">
                         <Form.Label><h5>Service Price</h5></Form.Label>
                         <Form.Control name="servicePrice" defaultValue={servicePrice} type="number" ref={register({ required: true })} />
                         {errors.servicePrice && <span style={{ color: 'red' }}>Service price is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div style={{ textAlign: "end", paddingBottom: "50px" }}>
+                    <Form.Group style={{ textAlign: "end", paddingBottom: "50px" }}>
                         <Button variant='success' type="submit">Checkout</Button>
-                    </div>
+                    </Form.Group>
 
                 </Form>
 

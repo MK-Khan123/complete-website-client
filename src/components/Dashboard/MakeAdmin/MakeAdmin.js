@@ -28,16 +28,14 @@ const MakeAdmin = () => {
             </Col>
             <Col md={9} style={{ marginLeft: "250px" }}>
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="mb-2">
-                        <Form.Label>
-                            <h2 className='mb-3 border-bottom'>Add Email Address</h2>
-                        </Form.Label>
+                    <Form.Group className="mb-2">
+                        <Form.Label><h2 className='mb-3 border-bottom'>Add Email Address</h2></Form.Label>
                         <Form.Control name="email" type="email" ref={register({ required: true })} />
                         {errors.email && <div style={{ color: 'red', marginTop: '15px' }}>Email is required</div>}
-                    </div>
-                    <div className='text-end'>
+                    </Form.Group>
+                    <Form.Group className='text-end'>
                         <Button variant="success" type="submit">Add as an admin</Button>
-                    </div>
+                    </Form.Group>
                 </Form>
             </Col>
         </Row>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../Sidebar/Sidebar';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 
 const AddReview = () => {
     const { register, handleSubmit, errors } = useForm();
@@ -38,53 +39,45 @@ const AddReview = () => {
     };
 
     return (
-        <div className='row'>
-            <div className="col-md-2">
+        <Row>
+            <Col md={2}>
                 <Sidebar />
-            </div>
-            <div className="col-md-10 p-5" style={{ marginLeft: "250px" }}>
+            </Col>
+            <Col md={10} className="p-5" style={{ marginLeft: "250px" }}>
                 <h2 className='mb-3 border-bottom'>Add your review here</h2>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <Form onSubmit={handleSubmit(onSubmit)}>
 
-                    <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Your name</h5>
-                        </label>
-                        <input name="name" className="form-control" type="text" ref={register({ required: true })} />
+                    <Form.Group className="mb-3">
+                        <Form.Label><h5>Your name</h5></Form.Label>
+                        <Form.Control name="name" type="text" ref={register({ required: true })} />
                         {errors.name && <span style={{ color: 'red' }}>Your name is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Upload your image</h5>
-                        </label>
-                        <input name="reviewImage" className="form-control" onChange={handleImageUpload} type="file" ref={register({ required: true })} />
+                    <Form.Group className="mb-3">
+                        <Form.Label><h5>Upload your image</h5></Form.Label>
+                        <Form.Control name="reviewImage" onChange={handleImageUpload} type="file" ref={register({ required: true })} />
                         {errors.reviewImage && <span style={{ color: 'red' }}>Your image is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Designation</h5>
-                        </label>
-                        <input name="designation" className="form-control" type="text" ref={register({ required: true })} />
+                    <Form.Group className="mb-3">
+                        <Form.Label><h5>Designation</h5></Form.Label>
+                        <Form.Control name="designation" type="text" ref={register({ required: true })} />
                         {errors.designation && <span style={{ color: 'red' }}>Your designation is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Your review</h5>
-                        </label>
-                        <input name="review" className="form-control" type="text" ref={register({ required: true })} />
+                    <Form.Group className="mb-3">
+                        <Form.Label><h5>Your review</h5></Form.Label>
+                        <Form.Control name="review" type="text" ref={register({ required: true })} />
                         {errors.review && <span style={{ color: 'red' }}>Your review is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div style={{ textAlign: "end", paddingBottom: "50px" }}>
-                        <button className="btn btn-success" type="submit">Add Review</button>
-                    </div>
+                    <Form.Group style={{ textAlign: "end", paddingBottom: "50px" }}>
+                        <Button variant='success' type="submit">Add Review</Button>
+                    </Form.Group>
 
-                </form>
-            </div>
-        </div>
+                </Form>
+            </Col>
+        </Row>
     );
 };
 

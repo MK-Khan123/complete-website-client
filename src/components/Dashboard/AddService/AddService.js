@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../Sidebar/Sidebar';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 
 const AddService = () => {
     const { register, handleSubmit, errors } = useForm();
@@ -38,53 +39,45 @@ const AddService = () => {
     };
 
     return (
-        <div className='row'>
-            <div className="col-md-2">
+        <Row>
+            <Col md={2}>
                 <Sidebar />
-            </div>
-            <div className="col-md-10 p-5" style={{ marginLeft: "250px" }}>
+            </Col>
+            <Col md={10} className="p-5" style={{ marginLeft: "250px" }}>
                 <h2 className='mb-3 border-bottom'>Add your services here</h2>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <Form onSubmit={handleSubmit(onSubmit)}>
 
-                    <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Service Name</h5>
-                        </label>
-                        <input name="serviceName" className="form-control" type="text" ref={register({ required: true })} />
+                    <Form.Group className="mb-3">
+                        <Form.Label><h5>Service Name</h5></Form.Label>
+                        <Form.Control name="serviceName" type="text" ref={register({ required: true })} />
                         {errors.serviceName && <span style={{ color: 'red' }}>Service name is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Upload Service Image</h5>
-                        </label>
-                        <input name="serviceImage" className="form-control" onChange={handleImageUpload} type="file" ref={register({ required: true })} />
+                    <Form.Group className="mb-3">
+                        <Form.Label><h5>Upload Service Image</h5></Form.Label>
+                        <Form.Control name="serviceImage" onChange={handleImageUpload} type="file" ref={register({ required: true })} />
                         {errors.serviceImage && <span style={{ color: 'red' }}>Service image is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Service Details</h5>
-                        </label>
-                        <input name="serviceDetails" className="form-control" type="text" ref={register({ required: true })} />
+                    <Form.Group className="mb-3">
+                        <Form.Label><h5>Service Details</h5></Form.Label>
+                        <Form.Control name="serviceDetails" type="text" ref={register({ required: true })} />
                         {errors.serviceDetails && <span style={{ color: 'red' }}>Service details is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div className="mb-3">
-                        <label className="form-label">
-                            <h5>Service Price</h5>
-                        </label>
-                        <input name="servicePrice" className="form-control" type="number" ref={register({ required: true })} />
+                    <Form.Group className="mb-3">
+                        <Form.Label><h5>Service Price</h5></Form.Label>
+                        <Form.Control name="servicePrice" type="number" ref={register({ required: true })} />
                         {errors.servicePrice && <span style={{ color: 'red' }}>Service price is required</span>}
-                    </div>
+                    </Form.Group>
 
-                    <div style={{ textAlign: "end", paddingBottom: "50px" }}>
-                        <button className="btn btn-success" type="submit">Add Service</button>
-                    </div>
+                    <Form.Group style={{ textAlign: "end", paddingBottom: "50px" }}>
+                        <Button variant='success' type="submit">Add Service</Button>
+                    </Form.Group>
 
-                </form>
-            </div>
-        </div>
+                </Form>
+            </Col>
+        </Row>
     );
 };
 
