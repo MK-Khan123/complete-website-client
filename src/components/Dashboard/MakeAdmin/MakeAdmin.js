@@ -26,10 +26,10 @@ const MakeAdmin = () => {
             <Col md={2}>
                 <Sidebar />
             </Col>
-            <Col md={9} style={{ marginLeft: "250px" }}>
+            <Col md={9} className="p-5">
+                <h2 className='mb-3 border-bottom'>Add Email Address</h2>
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Form.Group className="mb-2">
-                        <Form.Label><h2 className='mb-3 border-bottom'>Add Email Address</h2></Form.Label>
+                    <Form.Group className="mb-2">                        
                         <Form.Control name="email" type="email" ref={register({ required: true })} />
                         {errors.email && <div style={{ color: 'red', marginTop: '15px' }}>Email is required</div>}
                     </Form.Group>

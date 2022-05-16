@@ -43,7 +43,7 @@ const AddService = () => {
             <Col md={2}>
                 <Sidebar />
             </Col>
-            <Col md={10} className="p-5" style={{ marginLeft: "250px" }}>
+            <Col md={10} className="p-5">
                 <h2 className='mb-3 border-bottom'>Add your services here</h2>
                 <Form onSubmit={handleSubmit(onSubmit)}>
 

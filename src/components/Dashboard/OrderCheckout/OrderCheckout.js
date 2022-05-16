@@ -48,10 +48,9 @@ const OrderCheckout = () => {
             <Col md={2}>
                 <Sidebar />
             </Col>
-            <Col md={10} className="p-5" style={{ marginLeft: "250px" }}>
+            <Col md={10} className="p-5">
                 <h2 className='mb-3'>Checkout</h2>
                 <Form onSubmit={handleSubmit(onSubmit)}>
-
                     <Form.Group className="mb-3">
                         <Form.Label><h5>Your Name</h5></Form.Label>
                         <Form.Control name="name" defaultValue={loggedInUser.displayName} type="text" ref={register({ required: true })} />
@@ -79,7 +78,6 @@ const OrderCheckout = () => {
                     <Form.Group style={{ textAlign: "end", paddingBottom: "50px" }}>
                         <Button variant='success' type="submit">Checkout</Button>
                     </Form.Group>
-
                 </Form>
 
                 <h6>Pay Now (you can book our service now by pressing the Checkout button and pay later!)</h6>

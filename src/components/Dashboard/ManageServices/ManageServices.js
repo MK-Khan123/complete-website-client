@@ -29,7 +29,7 @@ const ManageServices = () => {
             <Col md={2}>
                 <Sidebar />
             </Col>
-            <Col md={10} className="p-5" style={{ marginLeft: "250px" }}>
+            <Col md={10} className="p-5">
                 <h2 className='mb-3 border-bottom'>Manage Services</h2>
                 {/* A TABULAR DISPLAY OF SERVICES ALONG WITH THEIR RESPECTIVE DELETE BUTTON */}
                 <Table striped bordered hover className="mt-4">
@@ -52,7 +52,7 @@ const ManageServices = () => {
                                         <td>{serviceName}</td>
                                         <td>{serviceDetails}</td>
                                         <td>$ {servicePrice}</td>
-                                        <td><Button variant='success' size='sm'><FontAwesomeIcon icon={faEdit} /></Button> <Button onClick={() => handleDeleteService(_id)} variant='danger' size='sm'><FontAwesomeIcon icon={faTrashAlt} /></Button></td>
+                                        <td><Button variant='success' size='sm' className='my-1'><FontAwesomeIcon icon={faEdit} /></Button> <Button onClick={() => handleDeleteService(_id)} variant='danger' size='sm' className='my-1'><FontAwesomeIcon icon={faTrashAlt} /></Button></td>
                                     </tr>
                                 );
                             })

@@ -32,7 +32,7 @@ const AllOrderList = () => {
             <Col md={2}>
                 <Sidebar />
             </Col>
-            <Col md={10} className="p-5" style={{ marginLeft: "250px" }}>
+            <Col md={10} className="p-5">
                 <h2 className='mb-3 border-bottom'>All Order List</h2>
                 {/* A TABULAR DISPLAY OF All THE ORDERS */}
                 <Table striped hover bordered className="mt-5">
