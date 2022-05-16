@@ -46,7 +46,6 @@ const AddReview = () => {
             <Col md={10} className="p-5" style={{ marginLeft: "250px" }}>
                 <h2 className='mb-3 border-bottom'>Add your review here</h2>
                 <Form onSubmit={handleSubmit(onSubmit)}>
-
                     <Form.Group className="mb-3">
                         <Form.Label><h5>Your name</h5></Form.Label>
                         <Form.Control name="name" type="text" ref={register({ required: true })} />
@@ -74,7 +73,6 @@ const AddReview = () => {
                     <Form.Group style={{ textAlign: "end", paddingBottom: "50px" }}>
                         <Button variant='success' type="submit">Add Review</Button>
                     </Form.Group>
-
                 </Form>
             </Col>
         </Row>
