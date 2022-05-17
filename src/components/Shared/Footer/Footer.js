@@ -1,10 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faPinterest, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import logo from '../../../images/logo.png';
 import { faGlobe, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { Col, Row } from 'react-bootstrap';
+import logo from '../../../images/logo.png';
 
 const Footer = () => {
     return (
@@ -15,8 +15,8 @@ const Footer = () => {
                         <img width={100} className='d-block' src={logo} alt="" />
                         <h3 className='text-white mb-4'>City Wheels Auto Shop</h3>
                     </div>
-                    <p className="text-secondary">Sector-11, Uttara - 1230, Dhaka, Bangladesh</p>
-                    <div className="d-flex flex-column text-secondary">
+                    <p className="text-secondary text-lg-start mt-2">Sector-11, Uttara - 1230, Dhaka, Bangladesh</p>
+                    <div className="d-flex flex-column text-secondary text-lg-start">
                         <p><span className='text-info'><FontAwesomeIcon icon={faPhoneAlt} /></span> 123-456-789</p>
                         <p><span className='text-info'><FontAwesomeIcon icon={faEnvelope} /></span> contact@yourdomain.com</p>
                         <p><span className='text-info'><FontAwesomeIcon icon={faGlobe} /></span> www.yourdomain.com</p>

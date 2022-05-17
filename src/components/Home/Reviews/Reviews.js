@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 import 'swiper/swiper.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
@@ -14,12 +14,16 @@ import feedback from '../../../images/feedback.gif';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const url = 'https://desolate-springs-76107.herokuapp.com/reviews';
         fetch(url)
             .then(res => res.json())
-            .then(data => setReviews(data));
+            .then(data => {
+                setReviews(data);
+                setIsLoading(false);
+            });
     }, []);
 
     return (
@@ -27,6 +31,12 @@ const Reviews = () => {
             <h2 className='border-bottom pt-5 fw-bold'>
                 <img src={feedback} style={{ height: "72px", width: "96px" }} alt="" />WHAT OUR CLIENTS SAY
             </h2>
+            {
+                isLoading &&
+                <div className='d-flex justify-content-center align-items-center mt-5'>
+                    <Spinner animation="border" variant="dark" />
+                </div>
+            }
             <div className='mt-5'>
                 <Swiper
                     style={{
