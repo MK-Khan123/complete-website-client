@@ -24,7 +24,11 @@ const ManageServices = () => {
             method: 'DELETE'
         })
             .then(res => res.json())
-            .then(result => console.log(result));
+            .then(result => {
+                console.log(result)
+                const remainingServices = services.filter(service => service._id !== id);
+                setServices(remainingServices);
+            });
         alert("Service removed successfully! Please go to Home page to see the update.");
     };
 
